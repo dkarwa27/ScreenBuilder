@@ -1,0 +1,30 @@
+﻿<Window x:Class="ScreenBuilder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScreenBuilder"
+        mc:Ignorable="d"
+        Title="ScreenBuilder" Height="450" Width="1000" MaxHeight="450" MaxWidth="1000">
+    <Canvas Name="canvas">
+        <Grid Height="450" Width="1000">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="9*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ListBox Name="controlLstBox" Grid.Row="0" Grid.Column="0" Background="Aquamarine" Height="400" />
+
+            <ListBox Name="lstBox" Grid.Row="0" Grid.Column="1" Height="400" Background="Aqua" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" AllowDrop="True">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ListBoxItem Content="{Binding}" PreviewMouseLeftButtonDown="LstBoxItem_PreviewMouseLeftButtonDown"
+                                     Drop="LstBoxItem_Drop" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Canvas>
+</Window>
